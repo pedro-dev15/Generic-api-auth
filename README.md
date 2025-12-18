@@ -44,6 +44,7 @@ Sistema de autenticação backend (API REST) desenvolvido com **TypeScript**, **
 |--------|------------|-----------------------------------|--------------------------------------------------|
 | POST   | `/register`| Criar uma nova conta de usuário   | `{ "name": "...", "email": "...", "password": "..." }` |
 | POST   | `/login`   | Autenticar e receber o Token JWT | `{ "email": "...", "password": "..." }`          |
+| GET   | `/`   | Rota padrão | `Server is running!`          |
 
 ---
 
