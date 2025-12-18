@@ -1,12 +1,13 @@
-import * as dotenv from 'dotenv';
-import path from 'path';
+//Test to get the environment variables
+import * as dotenv from "dotenv";
+import path from "path";
 
-// Isso garante que o Node encontre o arquivo .env independente de onde você chame o script
+// This ensures that the Node finds the .env file regardless of where you call the script
 dotenv.config({
-  path: path.resolve(import.meta.dirname, '../../.env'),
+  path: path.resolve(import.meta.dirname, "../../.env"),
 });
 
 console.log(
-  'Teste de leitura do Secret:',
-  process.env.SECRET ? 'Lido com sucesso!' : 'Não encontrado',
+  "Teste de leitura do Secret:",
+  process.env.SECRET ? "Lido com sucesso!" : "Não encontrado"
 );

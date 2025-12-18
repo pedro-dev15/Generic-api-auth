@@ -1,5 +1,6 @@
+//Interface for the user body
 export interface UserBody {
-  password: string;
   email: string;
   name: string;
+  password: string;
 }

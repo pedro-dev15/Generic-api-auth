@@ -1,16 +1,17 @@
-//importing dependencies
+//Importing dependencies
 import express from "express";
 import cors from "cors";
 import router from "./routes.ts";
 
+//Creating the server
 const app = express();
 
-//middlewars
+//Middlewars
 app.use(cors());
 app.use(express.json());
 app.use(router);
 
-//listening port
+//Listening port
 app.listen(3000, () =>
   console.log("Servidor rodando na porta 3000. http://localhost:3000")
 );

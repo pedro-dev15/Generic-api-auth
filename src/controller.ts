@@ -9,6 +9,7 @@ export function none(req: Request, res: Response) {
   res.send("Hello, the api is running!");
 }
 
+//Register a new user
 export const register: RequestHandler = async (req, res) => {
   try {
     const { email, password, name } = req.body;
@@ -33,6 +34,7 @@ export const register: RequestHandler = async (req, res) => {
   }
 };
 
+//Login a user
 export const login: RequestHandler = async (req, res) => {
   try {
     const { email, password } = req.body;
