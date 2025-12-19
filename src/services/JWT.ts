@@ -11,10 +11,10 @@ export function generateToken(req: UserBody): string {
 }
 
 //Verify a JWT token
-export function verifyToken(token: string) {
+export function verifyToken(token: string): string | null {
   try {
     const decoded = jwt.verify(token, SECRET) as { email: string };
-    return decoded;
+    return decoded.email;
   } catch (err) {
     return null;
   }

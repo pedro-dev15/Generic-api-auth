@@ -2,12 +2,12 @@ import { prisma } from "./lib/prisma.ts";
 import { getHash, compareHash } from "./services/bcrypt.ts";
 import { generateToken } from "./services/JWT.ts";
 import "dotenv/config";
-import type { Request, Response, RequestHandler } from "express";
+import type { RequestHandler } from "express";
 
 // Default route
-export function none(req: Request, res: Response) {
+export const none: RequestHandler = (req, res) => {
   res.send("Hello, the api is running!");
-}
+};
 
 //Register a new user
 export const register: RequestHandler = async (req, res) => {
