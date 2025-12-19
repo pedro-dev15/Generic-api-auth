@@ -1,7 +1,7 @@
 //Importing dependencies
 import express from "express";
 import cors from "cors";
-import router from "./routes.ts";
+import router from "./auth/auth.routes.ts";
 
 //Creating the server
 const app = express();
