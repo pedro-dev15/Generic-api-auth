@@ -1,12 +1,23 @@
 import { getHash } from "../infra/crypto/bcrypt";
 import { prisma } from "../lib/prisma";
 
+/**
+ * Input de domínio do caso de uso de registro.
+ * Independente de HTTP ou Express.
+ */
 type RegisterInput = {
   name: string;
   email: string;
   password: string;
 };
 
+/**
+ * Caso de uso responsável pela regra de negócio do registro.
+ * - Gera hash da senha
+ * - Persiste o usuário no banco
+ *
+ * Não conhece req/res.
+ */
 export const registerUseCase = async ({
   password,
   name,
@@ -21,5 +32,6 @@ export const registerUseCase = async ({
       password: hash,
     },
   });
+
   return user;
 };
