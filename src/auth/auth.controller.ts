@@ -1,8 +1,8 @@
 import "dotenv/config";
 import type { RequestHandler } from "express";
 import { LoginRequest, RegisterRequest } from "../types/auth.ts";
-import { loginUseCase } from "./login.usecase.ts";
-import { registerUseCase } from "./register.usecase.ts";
+import { loginUseCase } from "../useCases/login.usecase.ts";
+import { registerUseCase } from "../useCases/register.usecase.ts";
 
 /**
  * Rota padrão para verificar se a API está rodando.
@@ -56,4 +56,25 @@ export const login: RequestHandler = async (req, res) => {
     // Erro esperado de autenticação
     res.status(401).json({ error: "Erro interno do servidor" });
   }
+};
+
+export const profile: RequestHandler = async (req, res) => {
+  // Este controller só deve ser acessado por usuários autenticados,
+  // garantindo que o middleware de autenticação seja aplicado na rota correspondente.
+
+  // O usuário autenticado é adicionado ao req pelo middleware auth.
+  const user = req.user;
+  if (!user) {
+    return res.status(401).json({ error: "Não autorizado" });
+  }
+
+  // Retorna os dados do usuário autenticado
+  res.status(200).json({
+    message: "Perfil do usuário",
+    user: {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+    },
+  });
 };
