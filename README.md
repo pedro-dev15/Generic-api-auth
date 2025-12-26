@@ -61,13 +61,13 @@ git clone <URL_DO_REPOSITORIO>
 cd Api-Sistema-login-Generico
 ```
 
-3. **Instale as dependências:**
+2. **Instale as dependências:**
 
 ```bash
 npm install
 ```
 
-4. **Configure o Banco de Dados e JWT:**
+3. **Configure o Banco de Dados e JWT:**
    Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
 
 ```bash
@@ -75,13 +75,13 @@ DATABASE_URL="postgresql://usuario:senha@localhost:5432/nome_do_banco"
 SECRET="sua_chave_secreta_aqui"
 ```
 
-5. **Gere o Prisma Client e rode a migration:**
+4. **Gere o Prisma Client e rode a migration:**
 
 ```bash
 npx prisma migrate dev --name init
 ```
 
-6. **Inicie o servidor:**
+5. **Inicie o servidor:**
 
 ```bash
 npm run dev
